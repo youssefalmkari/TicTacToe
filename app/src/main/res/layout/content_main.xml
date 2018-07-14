@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/table_layout"
+    app:layout_constraintBottom_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <TableRow
+        android:id="@+id/r0"
+        style="@style/TableRow">
+
+        <!-- TODO: Set Up a Style for Cell Attributes-->
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:background="@android:color/white"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_column="0"
+            android:layout_marginEnd="2dp"
+            android:textSize="64sp"
+            android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:background="@android:color/white"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_column="1"
+            android:layout_marginEnd="2dp"
+            android:textSize="64sp"
+            android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:background="@android:color/white"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_column="2"
+            android:layout_marginEnd="2dp"
+            android:textSize="64sp"
+            android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </TableRow>
+
+</TableLayout>
