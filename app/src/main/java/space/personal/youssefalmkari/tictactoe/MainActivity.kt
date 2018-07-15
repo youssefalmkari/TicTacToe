@@ -6,13 +6,31 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.TableLayout
+import android.widget.TextView
 
 /**
  * Primary View
  */
 class MainActivity : AppCompatActivity() {
+
+    /**
+     * Holds the TableLayout View
+     */
+    var tableLayout: TableLayout? = null
+    /**
+     * Displays who's turn it is
+     */
+    var turnTextView: TextView? = null
+    /**
+     * Represents a 3x3 matrix simulating the Board
+     */
+    var gameBoard: Array<CharArray> = Array(3) { CharArray(3) }
+    /**
+     * Value of current turn
+     */
+    var turn = 'X'
+
 
     /**
      * What happens when Activity is Created
@@ -28,7 +46,8 @@ class MainActivity : AppCompatActivity() {
         // Floating Action Button
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
-            HelloKotlin().displayMessage(view)
+            HelloKotlin("Get ready for a fun game of Tic Tac Toe")
+                    .displayKotlinMessage(view)
         }
     }
 

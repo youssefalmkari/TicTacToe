@@ -3,12 +3,18 @@ package space.personal.youssefalmkari.tictactoe
 import android.support.design.widget.Snackbar
 import android.view.View
 
-class HelloKotlin {
+/**
+ * Kotlin Class
+ */
+class HelloKotlin(private var message: String) {
 
-    fun displayMessage(view: View) {
-        Snackbar.make(view, "HelloKotlin", Snackbar.LENGTH_LONG)
+    constructor() : this("Hello Kotlin!!!")
+
+    /**
+     * Shows Snack Bar for a specific view
+     */
+    fun displayKotlinMessage(view: View) {
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-
-
     }
 }
