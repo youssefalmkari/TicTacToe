@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 'Google Inc.:Google APIs:24'
+    compileSdkVersion 24
     defaultConfig {
         applicationId "space.personal.youssefalmkari.tictactoe"
         minSdkVersion 24
