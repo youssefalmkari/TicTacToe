@@ -71,8 +71,5 @@ class MainActivity : AppCompatActivity() {
         return if (id == R.id.action_settings) {
             true
         } else super.onOptionsItemSelected(item)
-
     }
-
-
 }
