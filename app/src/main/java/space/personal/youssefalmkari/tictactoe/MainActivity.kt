@@ -1,13 +1,9 @@
 package space.personal.youssefalmkari.tictactoe
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
-import space.personal.youssefalmkari.tictactoe.activity.HelloKotlin
 
 /**
  * Primary View

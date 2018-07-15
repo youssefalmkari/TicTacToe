@@ -1,4 +1,4 @@
-package space.personal.youssefalmkari.tictactoe.activity
+package space.personal.youssefalmkari.tictactoe
 
 import android.support.design.widget.Snackbar
 import android.view.View

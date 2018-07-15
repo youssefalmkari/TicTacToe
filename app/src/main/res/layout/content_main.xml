@@ -9,55 +9,26 @@
     app:layout_constraintEnd_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
 
-    <TableRow
-        android:id="@+id/r0"
-        style="@style/TableRow">
-
-        <!-- TODO: Set Up a Style for Cell Attributes-->
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="0dp"
-            android:layout_column="0"
-            android:layout_marginEnd="2dp"
-            android:textSize="64sp"
-            android:textColor="@android:color/black"
-            android:clickable="true"
-            android:focusable="true">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="0dp"
-            android:layout_column="1"
-            android:layout_marginEnd="2dp"
-            android:textSize="64sp"
-            android:textColor="@android:color/black"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="0dp"
-            android:layout_column="2"
-            android:layout_marginEnd="2dp"
-            android:textSize="64sp"
-            android:textColor="@android:color/black"
-            android:clickable="true"
-            android:focusable="true" />
-
+    <TableRow android:id="@+id/r0" style="@style/TableRow">
+        <TextView style="@style/Cell.Left"
+            android:layout_marginTop="0dp"/>
+        <TextView style="@style/Cell.Middle"
+            android:layout_marginTop="0dp"/>
+        <TextView style="@style/Cell.Right"
+            android:layout_marginTop="0dp"/>
+    </TableRow>
+    <TableRow android:id="@+id/r1" style="@style/TableRow">
+        <TextView style="@style/Cell.Left"/>
+        <TextView style="@style/Cell.Middle"/>
+        <TextView style="@style/Cell.Right"/>
+    </TableRow>
+    <TableRow android:id="@+id/r2" style="@style/TableRow">
+        <TextView style="@style/Cell.Left"
+            android:layout_marginBottom="0dp"/>
+        <TextView style="@style/Cell.Middle"
+            android:layout_marginBottom="0dp"/>
+        <TextView style="@style/Cell.Right"
+            android:layout_marginBottom="0dp"/>
     </TableRow>
 
 </TableLayout>
