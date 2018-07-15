@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
      * Handle action bar item clicks here. The action bar will
      * automatically handle clicks on th Home/Up button, so long
      * as you specify a parent activity in AndroidManifest.xml.
+     * ---------------------------------------------------------
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
