@@ -2,6 +2,7 @@ package space.personal.youssefalmkari.tictactoe
 
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.Log
@@ -101,7 +102,6 @@ class MainActivity : AppCompatActivity() {
 
                 if (setClickListener) {
                     cell.setOnClickListener { cellClickListener(i, j) }
-                    // Check if game has a winner
                 }
             }
         }
@@ -109,6 +109,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * What happens when Board Cell is clicked
+     * ---------------------------------------
      */
     private fun cellClickListener(row: Int, column: Int) {
         gameBoard[row][column]
@@ -116,8 +117,14 @@ class MainActivity : AppCompatActivity() {
                 .getChildAt(column) as TextView).text = turn.toString()
         turn = if ('X' == turn) 'O' else 'X'
         turnTextView?.text = String.format(getString(R.string.turn), turn)
+
+        checkGameStatus()
     }
 
+    /**
+     * Checks if Game Board is full
+     * ----------------------------
+     */
     private fun isBoardFull(gameBoard: Array<CharArray>): Boolean {
 
         // Row
@@ -125,7 +132,8 @@ class MainActivity : AppCompatActivity() {
             // Column
             for (j in 0 until gameBoard[i].size) {
                 // A cell is empty
-                if (gameBoard[i][j] == ' ') return false
+                if (gameBoard[i][j] == ' ')
+                    return false
             }
         }
 
@@ -133,11 +141,63 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    /**
+     * Checks if there is a winner
+     * ---------------------------
+     */
     private fun isWinner(gameBoard: Array<CharArray>, w: Char): Boolean {
+        for (i in 0 until gameBoard.size) {
+
+            // Horizontal
+            if (gameBoard[i][0] == w && gameBoard[i][1] == w && gameBoard[i][2] == w) {
+                return true
+            }
+
+            // Vertical
+            if (gameBoard[0][i] == w && gameBoard[1][i] == w && gameBoard[2][i] == w) {
+                return true
+            }
+
+            // Diagonal
+            if (gameBoard[0][0] == w && gameBoard[1][1] == w && gameBoard[2][2] == w
+                    || gameBoard[0][2] == w && gameBoard[1][1] == w && gameBoard[2][0] == w) {
+                return true
+            }
+        }
+
         return false
     }
 
+    /**
+     * Checks current game status
+     * --------------------------
+     */
     private fun checkGameStatus() {
+        println("INSIDE checkGameStatus")
         var state: String? = null
+
+        if (isWinner(gameBoard, 'X')) { // X won
+            state = String.format(resources.getString(R.string.winner), 'X')
+            println("X is Winner - STATE: $state")
+        } else if (isWinner(gameBoard, 'O')) { // O won
+            state = String.format(resources.getString(R.string.winner), 'O')
+            println("O is Winner - STATE: $state")
+        } else { // Draw
+            if (isBoardFull(gameBoard)) {
+                state = resources.getString(R.string.draw)
+                println("DRAW - STATE: $state")
+            }
+        }
+
+        println("STATE after all conditions: $state")
+        if (state != null) {
+            turnTextView?.text = state
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage(state)
+            builder.setPositiveButton(android.R.string.ok,
+                    { dialog, id -> startNewGame(false)})
+            val dialog = builder.create()
+            dialog.show()
+        }
     }
 }
