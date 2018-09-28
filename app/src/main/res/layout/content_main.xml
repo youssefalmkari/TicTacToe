@@ -27,6 +27,7 @@
             style="@style/Cell.Right"
             android:layout_marginTop="0dp" />
     </TableRow>
+
     <!--Second Row-->
     <TableRow
         android:id="@+id/r1"
@@ -38,6 +39,7 @@
 
         <TextView style="@style/Cell.Right" />
     </TableRow>
+
     <!--Third Row-->
     <TableRow
         android:id="@+id/r2"

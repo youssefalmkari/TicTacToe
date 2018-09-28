@@ -18,21 +18,16 @@ import android.widget.TextView
  */
 class MainActivity : AppCompatActivity() {
 
-    /**
-     * Holds the TableLayout View
-     */
+    // Holds the TableLayout View
     private var tableLayout: TableLayout? = null
-    /**
-     * Displays who's turn it is
-     */
+
+    // Displays who's turn it is
     var turnTextView: TextView? = null
-    /**
-     * Represents a 3x3 matrix simulating the Board
-     */
+
+    // Represents a 3x3 matrix simulating the Board
     private var gameBoard: Array<CharArray> = Array(3) { CharArray(3) }
-    /**
-     * Value of current turn
-     */
+
+    // Value of current turn
     var turn: Char = 'X'
 
 
@@ -44,21 +39,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        turnTextView = findViewById(R.id.turnTextView) as TextView
-        tableLayout = findViewById(R.id.table_layout) as TableLayout
+        turnTextView = findViewById(R.id.turnTextView)
+        tableLayout = findViewById(R.id.table_layout)
 
         // New Game
         startNewGame(true)
 
         // Toolbar
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         // Floating Action Button
-        val fab = findViewById(R.id.fab) as FloatingActionButton
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener { view ->
-            HelloKotlin("Get ready for a fun game of Tic Tac Toe")
-                    .displayKotlinMessage(view)
+            HelloKotlin("Get ready for a fun game of Tic Tac Toe").displayKotlinMessage(view)
         }
     }
 
@@ -87,6 +81,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Begins a new game
+     * -----------------
      */
     private fun startNewGame(setClickListener: Boolean) {
         turn = 'X'
@@ -94,6 +89,7 @@ class MainActivity : AppCompatActivity() {
 
         // Row
         for (i in 0 until gameBoard.size) {
+
             // Column
             for (j in 0 until gameBoard[i].size) {
                 gameBoard[i][j] = ' '
@@ -104,6 +100,7 @@ class MainActivity : AppCompatActivity() {
                     cell.setOnClickListener { cellClickListener(i, j) }
                 }
             }
+
         }
     }
 
@@ -112,9 +109,11 @@ class MainActivity : AppCompatActivity() {
      * ---------------------------------------
      */
     private fun cellClickListener(row: Int, column: Int) {
-        gameBoard[row][column]
         ((tableLayout?.getChildAt(row) as TableRow)
                 .getChildAt(column) as TextView).text = turn.toString()
+
+        gameBoard[row][column] = turn
+
         turn = if ('X' == turn) 'O' else 'X'
         turnTextView?.text = String.format(getString(R.string.turn), turn)
 
@@ -195,7 +194,7 @@ class MainActivity : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             builder.setMessage(state)
             builder.setPositiveButton(android.R.string.ok,
-                    { dialog, id -> startNewGame(false)})
+                    { dialog, id -> startNewGame(false) })
             val dialog = builder.create()
             dialog.show()
         }
